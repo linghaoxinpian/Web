@@ -9,7 +9,7 @@
             padding: 0
         }
         .carousel-img{
-            width: 490px;           //修改图片宽度
+            width: 490px;           /*修改图片宽度*/
             height: 170px;
             overflow: hidden;
             border: 1px solid #3e3e3e;
@@ -56,6 +56,7 @@
             var squares=document.getElementsByClassName("square")[0].children;
             var ul=document.getElementsByClassName("carousel-img")[0].children[0];    //移动的对象
             var imgWidth=ul.children[0].offsetWidth;  //图片宽度
+            //为底部选项卡设置鼠标移入移出事件
             for(var i=0;i<squares.length;i++){
                 squares[i].index=i;
                 squares[i].onmouseover=function () {
@@ -89,6 +90,15 @@
                         }
                     }
                 }
+            }
+            //为图片设置鼠标移入移出事件
+            ul.onmouseover=function () {
+                //停止自动轮播图片计时器
+                clearInterval(carousel_timer);
+            };
+            ul.onmouseout=function () {
+                //开启自动轮播图片计时器
+                carousel_timer=setInterval(autoPlay,2000);
             }
             //点击切换图片end
             //定时切换图片start
