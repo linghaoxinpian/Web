@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        *{ margin:0;padding:0}
+        .box1{
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 193, 113, 0.87);
+            padding:50px;
+            margin: 100px;
+            position: relative;
+            /*测试 offsetTop不包括边框*/
+            /*box-sizing: border-box;*/
+            /*border: 50px solid #000;*/
+        }
+        .box2{
+            width: 120px;
+            height: 120px;
+            background-color: #3cffd5;
+            position: absolute;
+            top:100px;
+            left: 100px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+           var box1=document.getElementsByClassName("box1")[0];
+           var box2=document.getElementsByClassName("box2")[0];
+           var h2=document.getElementsByTagName("h2")[0];
+           console.log(box2.offsetTop);
+           h2.htmlText="内层div的offsetTop:"+box2.offsetTop;
+        };
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <h2></h2>
+</body>
+</html>

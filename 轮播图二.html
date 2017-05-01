@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .carousel-img{
+            width: 490px;           //修改图片宽度
+            height: 170px;
+            overflow: hidden;
+            border: 1px solid #3e3e3e;
+            margin:200px auto;
+            position: relative;
+        }
+        .carousel-img ul{
+            height: 170px;
+            width: 3000px;  /*足够大*/
+            position: absolute;
+            left:0;
+        }
+        .carousel-img li{
+            float: left;
+            list-style: none;
+        }
+        .square{
+            position: absolute;
+            bottom:17px;
+            right:7px;
+        }
+        .square span{
+            margin:5px 8px;
+            text-align: center;
+            line-height:100%;
+            background-color: #fff;
+            padding:2px 5px;
+            cursor: pointer;
+        }
+        .square .current_square{
+            background-color: #ffb224;
+        }
+        .square span:hover{
+            background-color: #ffb224;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            myAnimate();
+        };
+        function myAnimate() {
+            var current_square=0;   //定时轮播图片位置指针
+            //点击切换图片 start
+            var squares=document.getElementsByClassName("square")[0].children;
+            var ul=document.getElementsByClassName("carousel-img")[0].children[0];    //移动的对象
+            var imgWidth=ul.children[0].offsetWidth;  //图片宽度
+            for(var i=0;i<squares.length;i++){
+                squares[i].index=i;
+                squares[i].onmouseover=function () {
+                    //1首先停止自动轮播图片计时器
+                    clearInterval(carousel_timer);
+                    //2然后设置自动轮播的位置
+                    current_square=this.index;
+
+                    //点亮自己，熄灭其他
+                    for(var j=0;j<squares.length;j++){
+                        //其它
+                        squares[j].className="";
+                        //找到自己
+                        if(j===this.index){
+                            this.className="current_square";
+                        }
+                    }
+                    //调用动画
+                    animate(ul,-this.index*imgWidth);
+                }
+                //开启自动轮播图片计时器
+                squares[i].onmouseout=function () {
+                    carousel_timer=setInterval(autoPlay,2000);
+                    //点亮自己，熄灭其他
+                    for(var j=0;j<squares.length;j++){
+                        //其它
+                        squares[j].className="";
+                        //找到自己
+                        if(j===this.index){
+                            this.className="current_square";
+                        }
+                    }
+                }
+            }
+            //点击切换图片end
+            //定时切换图片start
+            //首先复制第一张图片到所有图片的最后（无缝切换）
+            ul.appendChild(ul.children[0].cloneNode(true));
+            //开启定时器
+            var carousel_timer=setInterval(autoPlay,1000*2);
+            function autoPlay() {
+                //判断是否是最后一张图片（由于复制，此时实际多了一张图片,最后一张图片是第一张图片）
+                if(++current_square===squares.length+1){
+                    ul.style.left=0;    //图片偏移
+                    current_square=1;   //当前图片指针
+                }
+                animate(ul,-current_square*imgWidth);
+                //排他
+                for(var i=0;i<squares.length+1;i++){
+                    squares[i%squares.length].className="";
+                    if(i===current_square){
+                        squares[i%squares.length].className="current_square";
+                    }
+                }
+            }
+            //定时切换图片end
+
+
+            /**
+             * 动画封装
+             * @param ele
+             * @param target
+             */
+            function animate(ele,target) {
+                //先清除定时器再使用
+                clearInterval(ele.timer);
+                //开始计时器
+                ele.timer = setInterval(function () {
+                    var val = target - ele.offsetLeft;
+                    var speed=val>0?10:-10;
+                    ele.style.left=ele.offsetLeft+speed+"px";
+
+                    //停止计时器
+                    if(Math.abs(val)<=Math.abs(speed)){
+                        ele.style.left=target+"px";
+                        clearInterval(ele.timer);
+                    }
+                }, 10);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="carousel-img">
+    <ul>
+        <li><img src="images/01.jpg" alt=""></li>
+        <li><img src="images/02.jpg" alt=""></li>
+        <li><img src="images/03.jpg" alt=""></li>
+        <li><img src="images/04.jpg" alt=""></li>
+        <li><img src="images/05.jpg" alt=""></li>
+    </ul>
+    <div class="square" id="sq">
+        <span class="current_square">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+</div>
+</body>
+</html>

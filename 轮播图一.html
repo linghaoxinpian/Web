@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .carousel-img{
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+            border: 1px solid #3e3e3e;
+            margin:200px auto;
+            position: relative;
+        }
+        .carousel-img ul{
+            height: 170px;
+            width: 500%;
+            position: absolute;
+            left:0;
+        }
+        .carousel-img li{
+            float: left;
+            list-style: none;
+        }
+        .square{
+            position: absolute;
+            bottom:17px;
+            right:7px;
+        }
+        .square span{
+            margin:5px 8px;
+            text-align: center;
+            line-height:100%;
+            background-color: #fff;
+            padding:2px 5px;
+            cursor: pointer;
+        }
+        .square .current{
+            background-color: #ffb224;
+        }
+        .square span:hover{
+            background-color: #ffb224;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+          var squares=document.getElementsByClassName("square")[0].children;
+          console.log(squares[0]);
+          var ul=document.getElementsByClassName("carousel-img")[0].children[0];    //移动的对象
+          var imgWidth=ul.children[0].offsetWidth;  //图片宽度
+          for(var i=0;i<squares.length;i++){
+              squares[i].index=i;
+              squares[i].onmouseover=function () {
+                  //点亮自己，熄灭其他
+                  for(var j=0;j<squares.length;j++){
+                      //找到自己
+                      if(j===squares[j].index){
+                          squares.className="current";
+                      }
+                      //其它
+                      squares[j].className="";
+                  }
+                  //调用动画
+                  animate(ul,-this.index*imgWidth);
+              }
+          }
+        };
+
+        //动画封装
+        function animate(ele,target) {
+            //先清除定时器再使用
+            clearInterval(ele.timer);
+            //开始计时器
+            ele.timer = setInterval(function () {
+                var val = target - ele.offsetLeft;
+                var speed=val>0?10:-10;
+                ele.style.left=ele.offsetLeft+speed+"px";
+
+                //停止计时器
+                if(Math.abs(val)<=Math.abs(speed)){
+                    ele.style.left=target+"px";
+                    clearInterval(ele.timer);
+                }
+            }, 0);
+        }
+    </script>
+</head>
+<body>
+<div class="carousel-img">
+    <ul>
+        <li><img src="images/01.jpg" alt=""></li>
+        <li><img src="images/02.jpg" alt=""></li>
+        <li><img src="images/05.jpg" alt=""></li>
+        <li><img src="images/03.jpg" alt=""></li>
+        <li><img src="images/04.jpg" alt=""></li>
+    </ul>
+    <div class="square" id="sq">
+        <span class="current">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+</div>
+</body>
+</html>
