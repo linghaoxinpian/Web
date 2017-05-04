@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        nav{
+            width: 800px;
+            height: 42px;
+            margin:200px auto;
+            background: #7e7e7e;
+            border-radius: 10px;
+            position: relative;
+        }
+        nav ul{
+            position: relative; /*定位盒子的层级*/
+        }
+        nav li{
+            float: left;
+            list-style: none;
+            padding: 0px 7px;
+            color: #ffffff;
+            font:500 16px/42px "microsoft yahei";
+            text-align: center;
+            cursor: pointer;
+        }
+        .cloud{
+            width: 83px;
+            height: 42px;
+            background: url("images/cloud.png");
+            background-size:100% 100%;
+            position: absolute;
+            left:0;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var cloud=document.getElementsByClassName("cloud")[0];
+            var lis=document.getElementsByTagName("nav")[0].getElementsByTagName("li");
+            var cloudWidth=lis[0].offsetWidth;
+            var current=0;
+            //循环注册事件
+            for(var i=0;i<lis.length;i++){
+                lis[i].index=i;
+                lis[i].onmouseover=function () {
+                    animate(cloud,this.index*cloudWidth);
+                }
+
+                lis[i].onclick=function () {
+                    current=this.index;
+                }
+                lis[i].onmouseout=function () {
+                    animate(cloud,cloudWidth*current);
+                }
+            }
+        }
+        function animate(ele,target) {
+            //先清除定时器再使用
+            clearInterval(ele.timer);
+            //开始计时器
+            ele.timer = setInterval(function () {
+                //步长越来越小
+                var speed=(target-ele.offsetLeft)/10;
+                //避免由offsetLeft的默认四舍五入而造成的无限循环，当target与style.left距离10px以内时，步长speed只取1px或-1px
+                speed=target>ele.offsetLeft?Math.ceil(speed):Math.floor(speed);
+                //开始移动
+                ele.style.left=ele.offsetLeft+speed+"px";
+                //停止计时器
+                if(Math.abs(target-ele.offsetLeft)<=Math.abs(speed)){
+                    ele.style.left=target+"px"; //处理小数问题
+                    clearInterval(ele.timer);
+                }
+            }, 30);
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="cloud"></div>   <!--放在ul之前是为了降低层级-->
+        <ul>
+            <li>首页新闻</li>
+            <li>活动策划</li>
+            <li>师资力量</li>
+            <li>企业文化</li>
+            <li>招聘信息</li>
+            <li>公司简介</li>
+            <li>上海校区</li>
+            <li>广州校区</li>
+        </ul>
+    </nav>
+</body>
+</html>
