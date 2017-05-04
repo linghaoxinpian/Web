@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bg-box{
+            height: 200px;
+            background-color: #3e3e3e;
+            position: relative;
+            margin-top:50px;
+            padding-left:10px;
+        }
+        .box{
+            width: 80px;
+            height: 80px;
+            background-color: #ff4522;
+            position: absolute;
+            left:10px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var btn200 = document.getElementsByClassName("btn200")[0];
+            var btn400 = document.getElementsByClassName("btn400")[0];
+            var box = document.getElementsByClassName("box")[0];
+            btn200.onclick = function () {
+                animate(box,200);
+            }
+
+            btn400.onclick = function () {
+                animate(box,400);
+            }
+
+            function animate(ele,target) {
+                //先清除定时器再使用
+                clearInterval(ele.timer);
+                //开始计时器
+                ele.timer = setInterval(function () {
+                    //步长越来越小
+                    var speed=(target-ele.offsetLeft)/10;
+                    //避免由offsetLeft的默认四舍五入而造成的无限循环，当target与style.left距离10px以内时，步长speed只取1px或-1px
+                    speed=target>ele.offsetLeft?Math.ceil(speed):Math.floor(speed);
+                    //开始移动
+                    ele.style.left=ele.offsetLeft+speed+"px";
+                    //停止计时器
+                    if(Math.abs(target-ele.offsetLeft)<=Math.abs(speed)){
+                        ele.style.left=target+"px"; //处理小数问题
+                        clearInterval(ele.timer);
+                    }
+                }, 30);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="bg-box">
+    <button class="btn200">滑动200</button>
+    <button class="btn400">滑动400</button>
+    <div class="box"></div>
+</div>
+</body>
+</html>
