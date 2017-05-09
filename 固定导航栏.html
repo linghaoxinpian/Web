@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .body{
+            width:1423px;
+            margin:0 auto;
+        }
+        header{
+            height: 168px;
+            background: url(images/top-170509.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        nav{
+            height: 83px;
+            width: 100%;
+            background: url("images/nav-170509.png") no-repeat;
+        }
+        .fixed{
+            position: fixed;
+            top:0;
+        }
+        .main{
+            width: 1001px;
+            height: 2734px;
+            margin: 0 auto;
+            background: url("images/main-170509.png") no-repeat;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var nav=document.getElementsByTagName("nav")[0];
+            var top=document.getElementsByTagName("header")[0];
+            var main=document.getElementsByClassName("main")[0];
+            console.log(top);
+            window.onscroll=function () {
+//                console.log("top:"+scroll().top+ "   height:"+top.offsetHeight);
+                if(scroll().top>top.offsetHeight){
+//                    nav.className+=" fixed";  重复添加
+                    nav.classList.add("fixed");
+                    //为了避免fixed定位时盒子不占位置而造成的页面突然抖动，添加上margin-top
+                    main.style.marginTop=nav.offsetHeight+"px";
+                }else{
+                    console.log("触发了");
+                    nav.classList.remove("fixed");
+                    main.style.marginTop=0;
+                }
+            }
+        }
+        //封装scroll
+        function scroll(){
+            if(window.pageYOffset!==undefined){
+                return {
+                    "top":window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop,
+                    "left":window.pageYOffset||document.body.scrollLeft||document.documentElement.scrollLeft
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="body">
+    <header></header>
+    <nav></nav>
+    <div class="main">
+
+    </div>
+</div>
+</body>
+</html>
