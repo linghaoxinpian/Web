@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+	function scroll(){
+		if(window.pageYOffset!==undefined){
+			return {
+				"top":window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop,
+				"left":window.pageYOffset||document.body.scrollLeft||document.documentElement.scrollLeft
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<script>
+		alert("调用方法返回结果："+scroll());
+	</script>
+</body>
+</html>
