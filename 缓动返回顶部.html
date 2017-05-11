@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .rocket{
+            position: fixed;
+            top:70%;
+            right: 50px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var rocket=document.getElementsByClassName("rocket")[0];
+            rocket.onclick=function () {
+                animate(rocket);
+            }
+        }
+        /**
+         * 缓动回到顶部
+         * @param ele 随便传一个对象，以便模拟全局变量timer
+         * @param target
+         */
+        function animate(ele,target=0) {
+            //先清定时器
+            clearInterval(ele.timer);
+            //设置定时器
+            ele.timer=setInterval(function () {
+                var step=(target-scroll().top)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                window.scrollTo(0,scroll().top+step);
+                console.log(1);
+                if(Math.abs(step)>Math.abs(target-scroll().top)){
+                    window.scrollTo(0,0);   //处理小数
+                    clearInterval(ele.timer);
+                }
+            },25)
+        }
+
+        function scroll(){
+            if(window.pageYOffset!==undefined){
+                return {
+                    "top":window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop,
+                    "left":window.pageYOffset||document.body.scrollLeft||document.documentElement.scrollLeft
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="rocket"><img src="images/rocket.jpg"></div>
+        <img src="images/taobao.png" >
+        <img src="images/taobao.png">
+    </div>
+</body>
+</html>
