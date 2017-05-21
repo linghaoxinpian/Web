@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .box{
+            width: 450px;
+            height: 450px;
+            margin:200px 0 0 100px;
+        }
+        .small{
+            cursor: move;
+            position: relative;
+        }
+        .mask{
+            width: 200px;
+            height: 200px;
+            background:rgba(255, 255, 0, 0.4);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .big{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left:576px;
+            top:200px;
+            overflow: hidden;
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            //bug显示
+         //   alert("small盒子比small盒子里的img高度高4px??为什么");
+            //end
+            var small=document.getElementsByClassName("small")[0];
+            var big=document.getElementsByClassName("big")[0];
+            var mask=small.children[1];
+            var big_img=big.firstElementChild;
+            console.log(big_img);
+            small.onmouseover=function () {
+                big.style.display="block";
+            }
+            small.onmouseout=function () {
+                big.style.display="none";
+            }
+            small.onmousemove=function (event) {    //mousemove事件内部肯定是消息队列模式，所以每次触发方法后，会有延迟，记住啊，大哥，总是忘
+                event=event||window.event;
+                //获取鼠标位置
+                var pageX=event.pageX|| scroll().left+event.clientX;    //我知道肯定会忘， pageX是IE特有的包含页面滚动在内的鼠标坐标，-
+                var pageY=event.pageY|| scroll().top+event.clientY;     //-而clientX是不包含滚动在内的鼠标坐标
+                //设置mask位置
+                var x=pageX-small.offsetLeft-mask.offsetWidth/2;
+                var y=pageY-small.offsetTop-mask.offsetHeight/2;
+                    //检查mask盒子是否出了small盒子外
+                if(x<0){
+                    x=0;
+                }
+                else if(x>small.offsetWidth-mask.offsetWidth){
+                    x=small.offsetWidth-mask.offsetWidth;
+                }
+                if(y<0){
+                    y=0;
+                }
+                else if(y>small.offsetHeight-mask.offsetHeight){
+                    y=small.offsetHeight-mask.offsetHeight;
+                }
+
+                    //赋值
+                mask.style.left=x+"px";
+                mask.style.top=y+"px";
+                //--等比例移动大图
+                var ratioX=mask.offsetLeft/(small.offsetWidth-mask.offsetWidth);
+                var ratioY=mask.offsetTop/(small.offsetHeight-mask.offsetHeight);
+                big_img.style.marginLeft=-ratioX*big.offsetWidth+"px";
+                big_img.style.marginTop=-ratioY*big.offsetHeight+"px";
+                console.log(ratioX+","+ratioY);
+            }
+        }
+
+        function scroll(){
+            if(window.pageYOffset!==undefined){
+                return {
+                    "top":window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop,
+                    "left":window.pageYOffset||document.body.scrollLeft||document.documentElement.scrollLeft
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="small">
+        <img width="450" height="450" src="images/pc.jpg" alt="pc">
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="images/pcbig.jpg" alt="pc">
+    </div>
+</div>
+</body>
+</html>
