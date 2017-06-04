@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	function fn(){
+		alert("因为函数有不为undefined的返回值，所以页面会被清空");
+		return "http://www.baidu.com";
+	}
+	var a=1;
+	var b=10;
+	a=a^b;
+	b=a^b;
+	a=a^b;
+
+
+	 go=new Function("step","rose","alert(rose+'向前走了'+step+'步');");
+	//go(1,"主角");
+</script>
+<script type="text/javascript" src="Js类定义及其继承.js"></script>
+<body>
+	<h2>what</h2>
+	<a href="javascript:fn()">Click me 清空内容</a>
+	<br>
+
+</body>
+</html>
