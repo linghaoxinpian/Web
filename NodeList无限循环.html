@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var divs=document.getElementsByTagName("div"),i,div;
+		for(i=0;i<divs.length;i++){
+			div=document.createElement("div");
+			document.body.appendChild(div);
+			console.log('已添加第'+i+'个div');
+		}
+	}
+	</script>
+</head>
+<body>
+	<p>NodeList无限循环</p>
+	<div></div>
+	<div></div>
+</body>
+</html>

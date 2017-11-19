@@ -1,5 +1,5 @@
 /**
- *栈
+ *class 栈
  **/
 function Stack(){
 	this.this._arr=new Array();
@@ -17,7 +17,7 @@ function Stack(){
 }
 
 /**
- *队列
+ *class 队列
  **/
  function Queue(){
  	this._arr=new Array();
@@ -34,6 +34,9 @@ function Stack(){
  	}
  }
 
+/**
+ *class StringBuffer
+ **/
 function StringBuffer(){
 	this._arr=new Array();
 	if(typeof StringBuffer._initialized=="undefined"){
@@ -44,4 +47,25 @@ function StringBuffer(){
 			return this._arr.join("");
 		}
 	}
+}
+
+/**
+ *function 获取URL中的字符参数
+ * return 数组 arr[u]=xxx,arr[i]=yyy
+ **/
+function getQueryParameter(){
+	//获取URL中的查询字符串
+	var qs=location.search.length>0?location.search.length:"";
+	var arr=new Array();
+	var items=qs.length?qs.split("&"):[];
+	var key,value;
+	for(var i=0,lenght=items.length;i<length;i++){
+		item=items.split("=");
+		name=decodeURLComponent(item[0]);
+		value=decodeURLComponent(item[1]);
+		if(name.length){
+			arr[name]=value;
+		}
+	}
+	return arr;
 }

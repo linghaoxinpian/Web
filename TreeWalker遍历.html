@@ -1,0 +1,174 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		window.onload=function(){
+			var divs=document.getElementsByTagName("div");			
+			var treeWalker=document.createTreeWalker(divs[0],NodeFilter.SHOW_ELEMENT,null,false);
+			var one=treeWalker.firstChild();	divs[1].innerHTML+=one.tagName+"<br>";
+			var two=treeWalker.nextSibling();	divs[1].innerHTML+=two.tagName+"<br>";
+			var node=treeWalker.firstChild();	divs[1].innerHTML+=node.tagName+"<br>";
+
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<p>我是p节点</p>
+		<ul>
+			<li>我是第一个li节点</li>
+			<li>我是第二个li节点</li>
+			<li>我是第三个li节点</li>
+			<li>我是第四个li节点</li>
+			<li>我是第五个li节点</li>
+		</ul>
+	</div>
+	<div style="height: 100px;width:200px;background:#999">
+		<!--用于输出结果-->
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
