@@ -1,0 +1,20 @@
+1.返回顶部
+2.导航栏
+3.input标签,maxlength,autocomplete=off,autofocusw, required,readonly(可用来设置会员选项)
+4.label for
+5.email标签   date标签  select 标签   video,audio标签(controls,autoplay,loop)
+6.table标签 cellpadding="10px" cellspacing="12px" colspan rowspan th(默认居中加粗) caption
+7.版权语义字符
+8.缕空字体：文字描边(-webkit-text-stroke: 2px lavender;)+文字透明(color: rgba(100,100,100,0);)
+9.类上样式，id上行为
+10.交集选择器无空格 h1.class1{} 描述的是有一个h1标签起了一个类名叫class1
+11.并集选择器 li,p,span
+12.盒模型5属性：宽高内外边 padding margin border
+13.高矮不齐，底边对齐 最高的图片底边对齐
+14. html标签分类：容器级元素+文本元素（不能嵌套，如input，span，img）   css标签分类：块级元素+行内元素
+    行内元素：不接受宽高，
+    块级元素：不给宽高，会继承父级元素
+15.浮动的字围效果
+16.清除浮动：给祖先元素加高度
+            clear:both 弊端，会使margin-top失效(本元素)，会使margin-bottom移动整个父元素盒子（由于父元素盒子高度为0，下边与上边合为一条边)
+            内隔法，如div:after
