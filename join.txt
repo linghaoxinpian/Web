@@ -1,10 +1,10 @@
 1.返回顶部
 2.导航栏
 3.input标签,maxlength,autocomplete=off,autofocusw, required,readonly(可用来设置会员选项)
-4.label for
-5.email标签   date标签  select 标签   video,audio标签(controls,autoplay,loop)
+4.label for a标签target:_self _blank dl>dt+dd 标签dl dd对dt的解释说明
+5.input email tel search number color image range  标签   date标签  select 标签   video,audio标签(controls,autoplay,loop)
 6.table标签 cellpadding="10px" cellspacing="12px" colspan rowspan th(默认居中加粗) caption
-7.版权语义字符
+7.版权语义字符&copy;`
 8.缕空字体：文字描边(-webkit-text-stroke: 2px lavender;)+文字透明(color: rgba(100,100,100,0);)
 9.类上样式，id上行为
 10.交集选择器无空格 h1.class1{} 描述的是有一个h1标签起了一个类名叫class1
@@ -13,11 +13,38 @@
 13.高矮不齐，底边对齐 最高的图片底边对齐
 14. html标签分类：容器级元素+文本元素（不能嵌套，如input，span，img）   css标签分类：块级元素+行内元素
     行内元素：不接受宽高，
-    块级元素：不给宽高，会继承父级元素
+    块级元素：不给宽高，会继承父级元素(待定)
 15.浮动的字围效果
 16.清除浮动：给祖先元素加高度
             clear:both 弊端，会使margin-top失效(本元素)，会使margin-bottom移动整个父元素盒子（由于父元素盒子高度为0，下边与上边合为一条边)
             内隔法，如div:after
-17.行高 设置在盒模型中垂直居中 text-align 水平居中 displayt:able-cell+vertical-align:middle 文字垂直居中
+17.行高 设置在盒模型中垂直居中 text-align 水平居中 display:table-cell+vertical-align:middle 文字垂直居中
 18.backgroud-image 默认重复铺满整个屏幕 background-repeat:none repeat-x background-position:center center background-size(css3):cover充满模型
 19.子绝父相 盒子为absolute时，若父元素为body且未设置定位，则以当前浏览器显示区为参照（长页面）
+20.固定定位 fixed 不随页面滚动滚动
+21.text-indent:-999px 文字缩进 搜索引擎优化
+22.opacity 透明度
+23.盒子居中方法 left top 50% margin -x/2 0 0 -x/2
+24.文本框点击显示边框 outline:none
+25.letter-spacing字符间距
+26.h5新增功能 结构化标签 Canvas 离线地图 文件存储
+27.h5新增标签 header footer
+            article 相当于<div class="article"> 可嵌套h1,p标签,secion标签`
+            section 章节,定义文档主题部分,可嵌套h2,p
+            aside 侧边栏 定义article之外的内容
+            progress 进度条
+            meter 测试密码强度 min:0,max:100,low:30,high:80,value=70
+            mark 强调文本
+            ins 与 <del> 一同使用，来描述文档中的更新和修正。
+            time 表示某个文本为时间，datetime属性省略时，嵌套文本必须为时间
+            hgroup 对h1-6进行嵌套 figure figcaption 了解即可
+            datalist id与text的list对应
+28.css3选择器 E[attr] 属性选择器 具有attr属性的E元素，如：input[value]{}
+            E[attr="v"] 属性值选择器 如input[type="text"]
+            E[attr~="v"] 选择具有attr属性，且属性值有多个，其中一个属性值是v 如:input[style~="30px"]
+            E[attr^="v"] 选择具有attr属性，属性值以v开头 
+            E[attr$="v"] 选择具有attr属性，属性值以v结尾
+            E[attr*="v"] 选择具有attr属性，属性值含有v
+            p::first-letter{} p标签中第一个字符,应用于块级元素
+            p::first-line{} p标签中第一行
+            p::selection{} 选中文字
