@@ -51,3 +51,8 @@
 29.text-fill-color比color级别要高
 30.word-break:keep-all 空格换行
 31.text-overflow: clip ellipsis 文字溢出隐藏或省略号
+32.border-image-source:url 图片边框 border-image-width border-image-slice 切图 border-image-repeat border-image-outset
+33.backgroud-clip border-box padding-box content-box 背景裁切 backgroud-origin 背景定位
+34.渐变 backgound-image:linear-gradient(to bottom,red,blue) to 结束位置,起始颜色,结束颜色
+            linear-gradient(45deg,red 0,yellow 45%,green 80%,purple 100%)
+            径向渐变 radial-gradient(450px at 10px 30px red 10%,black 50%); 渐变半径 at x轴 y轴 颜色 
