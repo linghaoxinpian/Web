@@ -50,4 +50,4 @@
             p::selection{} 选中文字
 29.text-fill-color比color级别要高
 30.word-break:keep-all 空格换行
-31.text-overflow: 文字溢出隐藏
+31.text-overflow: clip ellipsis 文字溢出隐藏或省略号
