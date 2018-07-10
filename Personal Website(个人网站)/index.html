@@ -6,6 +6,38 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/animate.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var windowHeight = $(window).height()*0.5;
+            var screen_2_top = $(".screen-2").offset().top;
+            var screen_3_top = $(".screen-3").offset().top;
+            var screen_4_top = $(".screen-4").offset().top;
+            var screen_5_top = $(".screen-5").offset().top;
+            var screen_6_top = $(".screen-6").offset().top;
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (windowHeight+ scrollTop > screen_6_top) {
+                    $(".screen-6 *").addClass("runing");
+                }
+                else if (windowHeight + scrollTop > screen_5_top) {
+                    $(".screen-5 *").addClass("runing");
+                }
+                else if (windowHeight + scrollTop > screen_4_top) {
+                    $(".screen-4 *").addClass("runing");
+                }
+                else if (windowHeight + scrollTop > screen_3_top) {
+                    $(".screen-3 *").addClass("runing");
+                }
+                else if (windowHeight+ scrollTop > screen_2_top) {
+                    $(".screen-2 .screen-2-main-item").addClass("runing");
+                }
+
+            });
+
+        });
+    </script>
 </head>
 <body>
 <div class="screen-1">
@@ -23,13 +55,14 @@
             </ul>
         </nav>
         <div class="c"></div>
-        <div class="screen-1-main fadeIn">
+        <div class="screen-1-main fadeIn runing">
             <h1>We Help to Build Your Site</h1>
             <h2>Free html5 templates Made by <a href="#">freehtml5.co</a></h2>
             <div class="form-wrap">
                 <form action="#">
                     <input type="search" class="search-in" placeholder="Enter your email"><!--
-                --><button class="search-btn">JOIN NOW</button>
+                -->
+                    <button class="search-btn">JOIN NOW</button>
                 </form>
             </div>
         </div>
@@ -39,19 +72,19 @@
     <div class="container">
         <div class="screen-2-main">
             <ul class="inline-block">
-                <li class="screen-2-main-item screen-2-main-item-i-1 fadeIn">
+                <li class="screen-2-main-item screen-2-main-item-i-1 fadeIn animate-i-1">
                     <dt class="screen-2-main-item-i-heading">Retina Ready</dt>
                     <dd class="screen-2-main-item-list">Far far away, behind the word mountains, far from the countries
                         Vokalia and Consonantia.
                     </dd>
                 </li>
-                <li class="screen-2-main-item screen-2-main-item-i-2 fadeIn">
+                <li class="screen-2-main-item screen-2-main-item-i-2 fadeIn animate-i-2">
                     <dt class="screen-2-main-item-i-heading">Fully Responsive</dt>
                     <dd class="screen-2-main-item-list">Far far away, behind the word mountains, far from the countries
                         Vokalia and Consonantia.
                     </dd>
                 </li>
-                <li class="screen-2-main-item screen-2-main-item-i-3 fadeIn">
+                <li class="screen-2-main-item screen-2-main-item-i-3 fadeIn animate-i-3">
                     <dt class="screen-2-main-item-i-heading">Web Starter</dt>
                     <dd class="screen-2-main-item-list">Far far away, behind the word mountains, far from the countries
                         Vokalia and Consonantia.
@@ -64,26 +97,27 @@
 <div class="screen-3">
     <div class="container">
         <h2 class="screen-3-heading fadeInUp">Our Project</h2>
-        <p class="screen-3-subheading fadeInUp">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias
+        <p class="screen-3-subheading fadeInUp">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
+            alias
             autem provident. Odit ab aliquam dolor eius.</p>
         <div class="screen-3-main">
             <ul class="inline-block">
-                <li class="screen-3-main-item screen-3-main-item-i-1 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-1 fadeIn animate-i-1">
                     <h3 class="screen-3-main-item-heading">Sea</h3>
                     <span class="screen-3-main-item-subheading">Web Design</span></li>
-                <li class="screen-3-main-item screen-3-main-item-i-2 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-2 fadeIn animate-i-2">
                     <h3 class="screen-3-main-item-heading">Nature</h3>
                     <span class="screen-3-main-item-subheading">Application</span></li>
-                <li class="screen-3-main-item screen-3-main-item-i-3 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-3 fadeIn animate-i-3">
                     <h3 class="screen-3-main-item-heading">Green Island</h3>
                     <span class="screen-3-main-item-subheading">Branding</span></li>
-                <li class="screen-3-main-item screen-3-main-item-i-4 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-4 fadeIn animate-i-4">
                     <h3 class="screen-3-main-item-heading">Workspace</h3>
                     <span class="screen-3-main-item-subheading">Web Design</span></li>
-                <li class="screen-3-main-item screen-3-main-item-i-5 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-5 fadeIn animate-i-5">
                     <h3 class="screen-3-main-item-heading">Nature</h3>
                     <span class="screen-3-main-item-subheading">Application</span></li>
-                <li class="screen-3-main-item screen-3-main-item-i-6 fadeIn">
+                <li class="screen-3-main-item screen-3-main-item-i-6 fadeIn animate-i-6">
                     <h3 class="screen-3-main-item-heading">Green Island</h3>
                     <span class="screen-3-main-item-subheading">Branding</span></li>
             </ul>
@@ -96,7 +130,7 @@
         <h2 class="screen-4-heading fadeInUp">Happy Clients</h2>
         <div class="screen-4-main">
             <ul class="inline-block">
-                <li class="screen-4-main-item">
+                <li class="screen-4-main-item fadeIn animate-i-1">
                     <section class="screen-4-main-item-article">“Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts. Separated they live in
                         Bookmarksgrove
@@ -105,14 +139,14 @@
                     <p class="screen-4-main-item-footer">John Doe, CEO<br> <a href="#">FREEHTML5.co</a><span>Creative Director</span>
                     </p>
                 </li>
-                <li class="screen-4-main-item">
+                <li class="screen-4-main-item fadeIn animate-i-2">
                     <section class="screen-4-main-item-article">“Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts.”
                     </section>
                     <p class="screen-4-main-item-footer">John Doe, CEO <br> <a href="#">FREEHTML5.co</a><span>Creative Director</span>
                     </p>
                 </li>
-                <li class="screen-4-main-item">
+                <li class="screen-4-main-item fadeIn animate-i-3">
                     <section class="screen-4-main-item-article">“Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts. Separated they live in
                         Bookmarksgrove
@@ -127,12 +161,13 @@
 </div>
 <div class="screen-5">
     <div class="container">
-        <h2 class="screen-5-heading">Recent Blog</h2>
-        <h3 class="screen-5-subheading">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias
+        <h2 class="screen-5-heading fadeInUp">Recent Blog</h2>
+        <h3 class="screen-5-subheading fadeInUp">Dignissimos asperiores vitae velit veniam totam fuga molestias
+            accusamus alias
             autem provident. Odit ab aliquam dolor eius.</h3>
         <div class="screen-5-main">
             <ul class="inline-block">
-                <li class="screen-5-main-item"><img src="images/work-4.jpg" alt="">
+                <li class="screen-5-main-item fadeIn animate-i-1"><img src="images/work-4.jpg" alt="">
                     <div><a href="#" class="title">45 Minimal Workspace Rooms for Web Savvys</a>
                         <span>Nov. 15th</span>
                         <a href="#" class="comment">21 <i></i></a>
@@ -141,7 +176,7 @@
                         <button class="screen-5-main-item-btn">Read More</button>
                     </div>
                 </li>
-                <li class="screen-5-main-item"><img src="images/work-2.jpg" alt="">
+                <li class="screen-5-main-item fadeIn animate-i-2"><img src="images/work-2.jpg" alt="">
                     <div><a href="#" class="title">45 Minimal Worksspace Rooms for Web Savvys</a>
                         <span>Nov. 15th</span>
                         <a href="#" class="comment">21 <i></i></a>
@@ -150,7 +185,7 @@
                         <button class="screen-5-main-item-btn">Read More</button>
                     </div>
                 </li>
-                <li class="screen-5-main-item"><img src="images/work-3.jpg" alt="">
+                <li class="screen-5-main-item fadeIn animate-i-3"><img src="images/work-3.jpg" alt="">
                     <div><a href="#" class="title">45 Minimal Workspace Rooms for Web Savvys</a>
                         <span>Nov. 15th</span>
                         <a href="#" class="comment">21 <i></i></a>
@@ -166,12 +201,14 @@
 </div>
 <div class="screen-6">
     <div class="container">
-        <div class="screen-6-heading">Lets Get Started</div>
-        <div class="screen-6-subheading">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias
+        <div class="screen-6-heading fadeInUp">Lets Get Started</div>
+        <div class="screen-6-subheading fadeInUp">Dignissimos asperiores vitae velit veniam totam fuga molestias
+            accusamus alias
             autem provident. Odit ab aliquam dolor eius.
         </div>
-        <div class="screen-6-btn">GET IN TOUCH</div>
+        <div class="screen-6-btn fadeInUp">GET IN TOUCH</div>
     </div>
 </div>
+
 </body>
 </html>

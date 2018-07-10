@@ -48,3 +48,6 @@
             p::first-letter{} p标签中第一个字符,应用于块级元素
             p::first-line{} p标签中第一行
             p::selection{} 选中文字
+29.text-fill-color比color级别要高
+30.word-break:keep-all 空格换行
+31.text-overflow: 文字溢出隐藏
