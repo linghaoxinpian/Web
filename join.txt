@@ -56,3 +56,4 @@
 34.渐变 backgound-image:linear-gradient(to bottom,red,blue) to 结束位置,起始颜色,结束颜色
             linear-gradient(45deg,red 0,yellow 45%,green 80%,purple 100%)
             径向渐变 radial-gradient(450px at 10px 30px red 10%,black 50%); 渐变半径 at x轴 y轴 颜色 
+35. perspective 景深 加在父盒子上

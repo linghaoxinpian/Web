@@ -1,0 +1,61 @@
+.heading {
+    background: #66677C;
+    padding: 30px 0;
+}
+
+.heading h1.text-center {
+    color: #D5D6E2;
+}
+
+.heading a.glyphicon {
+    font-size: 30px;
+    color: #D5D6E2;
+}
+
+.heading span.glyphicon {
+    font-size: 45px;
+    color: #D5D6E2;
+    padding: 0 12px;
+}
+
+.form-bg {
+    background: #00b4ef;
+    perspective: 200px;
+    padding-bottom: 200px;
+}
+
+.form-horizontal {
+    background: #fff;
+    border-radius: 15px;
+    padding-bottom: 40px;
+    box-shadow: inset -3px -2px 2px #000;
+}
+.form-horizontal:hover{
+    transform: rotateX(1deg);
+    box-shadow: inset -1px -4px 5px #000;
+}
+
+.form-bg h1.text-info {
+    font-size: 35px;
+    font-weight: 700;
+    color: #D5D6E2;
+    padding: 35px 0;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.form-group {
+    padding: 0 50px;
+    margin-bottom: 25px;
+}
+
+.form-group input[type=text], input[type=password] {
+    border-radius: 17px;
+    background: #f0f0f0;
+    padding: 0 20px 0 20px;
+    border: none;
+}
+.rememberMe-wrap{
+    color:#D5D6E2;
+    cursor: pointer;
+}
