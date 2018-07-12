@@ -54,7 +54,7 @@
 }
 
 .screen-1-heading {
-    width: 723px;
+    width: 620px;
     margin: 0 auto;
     padding-top: 50px;
 }
@@ -217,27 +217,27 @@
 }
 
 .screen-3-main-item-i-1 {
-    background: url("../images/work-1.jpg");
+    background: url("../images/life1.jpeg");
 }
 
 .screen-3-main-item-i-2 {
-    background: url("../images/work-2.jpg");
+    background: url("../images/life2.jpeg");
 }
 
 .screen-3-main-item-i-3 {
-    background: url("../images/work-3.jpg");
+    background: url("../images/life3.jpeg");
 }
 
 .screen-3-main-item-i-4 {
-    background: url("../images/work-4.jpg");
+    background: url("../images/life4.jpeg");
 }
 
 .screen-3-main-item-i-5 {
-    background: url("../images/work-5.jpg");
+    background: url("../images/life5.png");
 }
 
 .screen-3-main-item-i-6 {
-    background: url("../images/work-6.jpg");
+    background: url("../images/life6.jpeg");
 }
 
 .screen-3-main-item-heading {
