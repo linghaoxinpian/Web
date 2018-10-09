@@ -1,0 +1,8 @@
+1. 标题 h1~h6,.h1~.h6
+2. 文本 .text-center .text-lowercase|upcase 
+3. 突出标签<mark> 下划线<u> 新插入<ins> <del> <small> <strong> 
+4. 表格 .table
+5. 表单 水平展示form.form-inline .form-group>.form-control .has-success .control-label  大小.input-lg|sm 
+6. 按钮 <.btn> .btn-default btn-lg btn-block
+7. 1em=16px rem稳定，继承根元素(html)的大小
+8. 字体图标 <.glyphicon> .glyphicon-search

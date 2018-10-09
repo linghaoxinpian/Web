@@ -1,0 +1,26 @@
+1.  数据库的中timestamp都是有默认值CURRENT_TIMESTAMP，插入时可传参数CURRENT_TIMESTAMP
+    java接收时，用java.utils.Date,用Long只能接收得到年
+2.不是0和5的就是标签讨论
+3.lombok plugin 插件，@Data
+4.git log --pretty=oneline 代替 git log
+5.git 撤销更改 
+    场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+    场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+    场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+6.git 以退为进式的版本回退，用于服务器端
+    git revert <commit_id>  不能用恢复删除的文件，只能修改已有内容
+7. 将本地分支local合并到远程master分支的请求
+    7.1 git checkout master->git pull origin master
+    7.2 git checkout local->git merge master(将本地master分支合并到local分支，以处理冲突)
+    7.3 git push origin local:local
+8.强制pull远程master分支覆盖本地文件
+    git fetch --all 
+    git reset --hard origin/master
+    git pull
+9.日期操作：org.joda.*
+10.存表情的字段字符集要设置成支持的格式，如utf8mb4
+11. tail -n 300 -f app.log  打印日志
+
+
+2. Java核心技术 281页->over
+3.数据结构321
